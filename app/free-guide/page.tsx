@@ -52,16 +52,16 @@ export default function FreeGuidePage() {
         className="text-3xl sm:text-4xl md:text-5xl font-black text-white text-center leading-tight max-w-3xl"
         style={{ letterSpacing: "-0.01em" }}
       >
-        The Testosterone Guide That Shows You Exactly{" "}
-        <span style={{ color: "#1FA9FE" }}>What&apos;s In Our Formula</span>{" "}
-        — And Why.
+        7 Ingredients{" "}
+        <span style={{ color: "#1FA9FE" }}>Proven to Boost Testosterone</span>{" "}
+        — See Exactly What&apos;s In Our Formula.
       </h1>
 
       {/* Subhead */}
       <p className="mt-5 text-base sm:text-lg text-gray-300 text-center max-w-xl">
-        Free PDF breakdown of every ingredient, every dose, and the science
-        behind{" "}
-        <span className="text-white font-semibold">Peak Performance.</span>
+        Get the free breakdown — every ingredient, every clinical dose, and the
+        research that proves{" "}
+        <span className="text-white font-semibold">why it actually works.</span>
       </p>
 
       {/* Divider */}
@@ -132,9 +132,9 @@ export default function FreeGuidePage() {
       {/* Trust bullets */}
       <ul className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-8 items-center">
         {[
-          "7 research-backed ingredients",
-          "Every dose fully disclosed",
-          "No proprietary blends",
+          "7 clinically-dosed ingredients",
+          "Transparent label — nothing hidden",
+          "The science behind every compound",
         ].map((bullet) => (
           <li key={bullet} className="flex items-center gap-2">
             <span
