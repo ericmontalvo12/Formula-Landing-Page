@@ -169,7 +169,7 @@ function SuccessState() {
       </div>
       <h2 className="text-2xl font-black text-white">Thank You!</h2>
       <p className="text-gray-300 text-base">
-        Thank you for your interest in our Training PDF guide. We are pleased to
+        Thank you for your interest in our &ldquo;7 Ingredients Proven to Boost Testosterone Guide&rdquo;. We are pleased to
         provide you with comprehensive information to support your health journey.
       </p>
       <a
