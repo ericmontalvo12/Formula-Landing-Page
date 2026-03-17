@@ -10,34 +10,18 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const apiKey = process.env.GHL_API_KEY;
-  const locationId = process.env.GHL_LOCATION_ID;
+  const webhookRes = await fetch(
+    "https://services.leadconnectorhq.com/hooks/EakYnXEQy1hvVFmdShYB/webhook-trigger/8CWcQR8qmduFx6Fwwxhv",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ firstName, email }),
+    }
+  );
 
-  if (!apiKey || !locationId) {
-    console.error("Missing GHL_API_KEY or GHL_LOCATION_ID environment variables");
-    return NextResponse.json(
-      { error: "Server configuration error" },
-      { status: 500 }
-    );
-  }
-
-  const ghlRes = await fetch("https://rest.gohighlevel.com/v1/contacts/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      firstName,
-      email,
-      locationId,
-      tags: ["testosterone-guide"],
-    }),
-  });
-
-  if (!ghlRes.ok) {
-    const body = await ghlRes.text();
-    console.error("GoHighLevel API error:", ghlRes.status, body);
+  if (!webhookRes.ok) {
+    const body = await webhookRes.text();
+    console.error("GHL webhook error:", webhookRes.status, body);
     return NextResponse.json(
       { error: "Failed to subscribe" },
       { status: 502 }
