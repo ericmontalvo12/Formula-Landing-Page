@@ -22,13 +22,19 @@ export default function FreeGuidePage() {
 
       setStatus("success");
 
-      // Trigger PDF download
-      const link = document.createElement("a");
-      link.href = "/peak-performance-guide.pdf";
-      link.download = "peak-performance-guide.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // Trigger PDF download via blob to bypass browser async-gesture restrictions
+      fetch("/peak-performance-guide.pdf")
+        .then((r) => r.blob())
+        .then((blob) => {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "peak-performance-guide.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+        });
     } catch {
       setStatus("error");
     }
