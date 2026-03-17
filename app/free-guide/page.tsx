@@ -167,20 +167,35 @@ function SuccessState() {
       >
         ✓
       </div>
-      <h2 className="text-2xl font-black text-white">You&apos;re in!</h2>
+      <h2 className="text-2xl font-black text-white">Thank You!</h2>
       <p className="text-gray-300 text-base">
-        Your free guide is downloading now. Check your inbox — we&apos;re also
-        sending it to your email.
+        Thank you for your interest in our Training PDF guide. We are pleased to
+        provide you with comprehensive information to support your health journey.
+      </p>
+      <a
+        href="/peak-performance-guide.pdf"
+        download
+        className="w-full rounded py-4 font-black text-base tracking-wide uppercase text-center"
+        style={{ backgroundColor: "#1FA9FE", color: "#000000", letterSpacing: "0.08em" }}
+      >
+        Download Your Training Guide
+      </a>
+      <p className="text-gray-500 text-sm">
+        We have also sent the guide to your email. If you have any questions or
+        need further assistance, please do not hesitate to reach out.
       </p>
       <p className="text-gray-500 text-sm">
-        If your download doesn&apos;t start automatically,{" "}
+        — Rock Mountain Performance
+      </p>
+      <p className="text-gray-600 text-xs">
+        Having trouble?{" "}
         <a
           href="/peak-performance-guide.pdf"
           download
           style={{ color: "#1FA9FE" }}
           className="underline"
         >
-          click here
+          Click here to download directly
         </a>
         .
       </p>
