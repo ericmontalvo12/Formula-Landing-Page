@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function FreeGuidePage() {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent) {
@@ -15,7 +16,7 @@ export default function FreeGuidePage() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, email }),
+        body: JSON.stringify({ firstName, email, phone }),
       });
 
       if (!res.ok) throw new Error("Subscribe failed");
@@ -91,6 +92,17 @@ export default function FreeGuidePage() {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
+            className="w-full rounded px-4 py-3 text-white text-base outline-none border transition-colors focus:border-[#1FA9FE] placeholder-gray-500"
+            style={{
+              backgroundColor: "#111111",
+              border: "1px solid #2a2a2a",
+            }}
+          />
+          <input
+            type="tel"
+            placeholder="Phone Number (Optional)"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             className="w-full rounded px-4 py-3 text-white text-base outline-none border transition-colors focus:border-[#1FA9FE] placeholder-gray-500"
             style={{
               backgroundColor: "#111111",
